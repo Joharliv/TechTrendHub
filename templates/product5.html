@@ -1,0 +1,127 @@
+{% load static %}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartwatch Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            /* width: 100%;
+            height:1000px; */
+            background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product img {
+            width: 40%;
+            min-width: 300px;
+            border-radius: 10px;
+        }
+        .details {
+            flex: 1;
+            min-width: 300px;
+        }
+        .price {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .buy-button {
+            background: #ffcc00;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .other-products {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product-item {
+            text-align: center;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            width: 220px;
+        }
+        .product-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #3e2a98;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .back-button:hover {
+            background: #0056d8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'shop' %}" class="back-button">&#8592; Back</a>
+        <div class="product">
+            <img src="{% static 'images/download (2).jpeg' %}?v=2" alt="Smart Notebook">
+            <div class="details">
+                <h1>AI-powered keyboard</h1>
+                <p>AMOLED Display, 2 Straps, Make/Answer Calls, IP68 Waterproof, Fitness Tracking, 100+ Sport Modes, Pedometer, Android & iOS Compatible.</p>
+                <p class="price">$89.99 <span style="text-decoration: line-through; color: gray;">$99.99</span></p>
+                <a href="{% url 'shop' %}" class="buy-button">Buy Now</a>
+            </div>
+        </div>
+        
+        <div class="other-products">
+            <h2>Other Products</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="{% static 'images/download (2).jpeg' %}?v=2" alt="Watch 1">
+                    <p>Smart Notebook</p>
+                    <p class="price">$49.99</p>
+                    <a href="#" class="buy-button">View</a>
+                </div>
+                <div class="product-item">
+                    <img src="{% static 'images/download (16).jpeg' %}?v=2" alt="Watch 2">
+                    <p>Smart Coffee Maker</p>
+                    <p class="price">$99.99</p>
+                    <a href="#" class="buy-button">View</a>
+                </div>
+                <div class="product-item">
+                    <img src="{% static 'images/download (3).jpeg' %}?v=2" alt="Watch 3">
+                    <p>Bluetooth Speaker</p>
+                    <p class="price">$79.99</p>
+                    <a href="#" class="buy-button">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

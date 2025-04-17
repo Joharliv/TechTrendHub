@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - TechTrend Hub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+    }
+    .custom-navbar {
+        background: linear-gradient(135deg, #bdd0f3, #3e2a98); /* blue to purple-ish */
+    }
+    footer {
+        background: linear-gradient(135deg, #3e2a98, #bdd0f3); /* blue to purple-ish */
+        color: white;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    </style>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}" style="color: #3e2a98; font-weight: bold ;">TechTrend Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'shop' %}">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'shops' %}">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">About TechTrend Hub</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'images/download (19).jpeg' %}?v=2" class="img-fluid rounded shadow" alt="About Us" style="width: 100%; max-height: 400px; object-fit: cover;">
+            </div>
+            
+            <div class="col-md-6">
+                <p class="lead">TechTrend Hub is an innovative online store specializing in AI-powered smart gadgets and accessories. Our goal is to revolutionize online shopping with smart recommendations and the latest tech.</p>
+                <h4>Our Mission</h4>
+                <p>We aim to provide high-quality, cutting-edge technology that enhances daily life. With AI-powered recommendations, we make shopping smarter and more personalized.</p>
+                <h4>Why Choose Us?</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">AI-driven product recommendations</li>
+                    <li class="list-group-item">Exclusive smart gadgets</li>
+                    <li class="list-group-item">Fast and secure checkout process</li>
+                </ul>
+                
+                <h4 class="mt-4">Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/yourpage" target="_blank" class="me-3">
+                        <i class="fab fa-instagram fa-2x text-danger"></i>
+                    </a>
+                    <a href="https://twitter.com/yourpage" target="_blank" class="me-3">
+                        <i class="fab fa-twitter fa-2x text-primary"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/yourpage" target="_blank">
+                        <i class="fab fa-linkedin fa-2x text-info"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">&copy; 2025 TechTrend Hub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

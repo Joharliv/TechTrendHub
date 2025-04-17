@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTrend Hub - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<style>
+    body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+        }
+    .card-img-top {
+        width: 100%;
+        height: 250px; /* Adjust height as needed */
+        object-fit: cover; /* Ensures images are cropped consistently */
+    }
+    .gradient-btn {
+    background: linear-gradient(45deg, #9abcfb, #5b46ff); /* Gradient colors */
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+    .gradient-btn:hover {
+        transform: scale(1.05); /* Slightly enlarge the button on hover */
+    }
+    .custom-navbar {
+    background: linear-gradient(135deg, #bdd0f3, #3e2a98); /* blue to purple-ish */
+}
+footer {
+    background: linear-gradient(135deg, #3e2a98, #bdd0f3); /* blue to purple-ish */
+    color: white;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+   
+
+</style>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}" style="color: #3e2a98; font-weight: bold ;">TechTrend Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'signup' %}">Sign Up</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header style="background: url('/static/images/bgimg.png') no-repeat center center; background-size: cover;" class="text-white text-center py-5">
+        <div class="container">
+            <h1>Welcome to TechTrend Hub</h1>
+            <p class="lead">TechTrend Hub: Navigating the Future of Technology</p>
+            <a href="{% url 'signup' %}" class="btn btn-light btn-lg" style="color:#3e2a98; font-weight: bold;">Signup</a>  
+            <a href="{% url 'login' %}" class="btn btn-light btn-lg" style="color:#3e2a98; font-weight: bold;">Login</a>
+        </div>
+    </header>
+
+    <section class="container my-5">
+        <h2 class="text-center">Featured Products</h2>
+        <div class="row text-center mt-4">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="{% static 'images/sw.jpeg' %}?v=2" class="card-img-top" alt="Smartwatch">
+                    <div class="card-body">
+                        <hr>
+                        <h5 class="card-title">AI Smartwatch</h5>
+                        <p class="card-text">$99.99</p>
+                        <a href="{% url 'shop' %}" class="btn btn-primary gradient-btn">View More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="{% static 'images/download (17).jpeg' %}?v=2" class="card-img-top" alt="Wireless Earbuds">
+                    <div class="card-body">
+                        <hr>
+                        <h5 class="card-title">Wireless AI Earbuds</h5>
+                        <p class="card-text">$59.99</p>
+                        <a href="{% url 'shop' %}" class="btn btn-primary gradient-btn">View More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <img src="{% static 'images/download (18).jpeg' %}?v=2" class="card-img-top" alt="Smart Camera">
+                    <div class="card-body">
+                        <hr>
+                        <h5 class="card-title">Smart Home Camera</h5>
+                        <p class="card-text">$129.99</p>
+                        <a href="{% url 'shop' %}" class="btn btn-primary gradient-btn">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">&copy; 2025 TechTrend Hub. All rights reserved.</p>
+    </footer>
+</body>
+</html>
