@@ -2,6 +2,7 @@ from django.shortcuts import render , redirect
 from .models import User
 from django.contrib.auth import authenticate, login as auth_login
 
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -12,7 +13,7 @@ def about(request):
 def contact(request):
     return render(request, 'contact.html')
 
-def cart(request):  
+def cart(request): 
     return render(request, 'cart.html')
 
 def product(request):
@@ -30,11 +31,53 @@ def product4(request):
 def product5(request):
     return render(request, 'product5.html')
 
+def product6(request):  
+    return render(request, 'product6.html')
+
+def product7(request):
+    return render(request, 'product7.html')
+
+def product8(request):
+    return render(request, 'product8.html')
+
+def product9(request):  
+    return render(request, 'product9.html')
+
+def product10(request):
+    return render(request, 'product10.html')
+
+def product11(request):
+    return render(request, 'product11.html')
+
+def product12(request):
+    return render(request, 'product12.html')
+
+def product13(request):
+    return render(request, 'product13.html')
+
+def product14(request):
+    return render(request, 'product14.html')
+
+def product15(request):
+    return render(request, 'product15.html')
+
+def product16(request):
+    return render(request, 'product16.html')
+
+def product17(request):
+    return render(request, 'product17.html')
+
+def product18(request):
+    return render(request, 'product18.html')
+
+def product19(request):
+    return render(request, 'product19.html')
+
 def shop(request):
     return render(request, 'shop.html')
 
-def shops(request):
-    return render(request, 'shops.html')
+def buy(request):
+    return render(request, 'buy.html')
 
 def signup(request):
     if request.method == "POST":
@@ -84,3 +127,5 @@ def login(request):
             return render(request, 'login.html', {'error': 'Username not found. Please sign up.'})
 
     return render(request, 'login.html')
+
+

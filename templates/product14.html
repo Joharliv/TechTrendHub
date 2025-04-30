@@ -5,9 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Smart Notebook Product Page</title>
+    <title>Smart Glasses - TechTrend Hub</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
+        /* Retained styles for consistent layout and branding */
         body {
             height: 100%;
             margin: 0;
@@ -38,9 +39,10 @@
         }
 
         .product img {
-            width: 40%;
-            min-width: 300px;
+            width: 450px;
             border-radius: 10px;
+            object-fit: cover;
+            height: 450px;
         }
 
         .details {
@@ -54,8 +56,8 @@
             font-weight: bold;
         }
 
-        .buy-button {
-            background: #b093fa;
+        .buy-button,
+        .buy-btn {
             padding: 10px 20px;
             text-decoration: none;
             color: black;
@@ -63,6 +65,10 @@
             display: inline-block;
             margin-top: 10px;
             border-radius: 5px;
+        }
+
+        .buy-button {
+            background: #b093fa;
         }
 
         .buy-button:hover {
@@ -71,13 +77,6 @@
 
         .buy-btn {
             background: #ffcc00;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-            border-radius: 5px;
             transition: transform 0.3s;
         }
 
@@ -99,37 +98,6 @@
 
         .back-button:hover {
             background: #0056d8;
-        }
-
-        .other-products {
-            margin-top: 60px;
-            text-align: center;
-        }
-
-        .product img {
-            width: 450px;
-            border-radius: 10px;
-            object-fit: cover;
-            height: 450px;
-        }
-
-        .related-products .product-list {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            gap: 20px;
-            justify-content: flex-start;
-            align-items: stretch;
-            padding-bottom: 10px;
-            scroll-behavior: smooth;
-        }
-
-        .other-products .product-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            overflow-x: hidden;
         }
 
         .product-item {
@@ -157,6 +125,25 @@
             height: 150px;
         }
 
+        .related-products .product-list {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 20px;
+            justify-content: flex-start;
+            align-items: stretch;
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .other-products .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            overflow-x: hidden;
+        }
+
         footer {
             background: linear-gradient(135deg, #3e2a98, #bdd0f3);
             color: white;
@@ -171,8 +158,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg custom-navbar">
         <div class="container-fluid px-4">
-            <a class="navbar-brand" href="{% url 'home' %}" style="color: #3e2a98; font-weight: bold;">TechTrend
-                Hub</a>
+            <a class="navbar-brand" href="{% url 'home' %}" style="color: #3e2a98; font-weight: bold;">TechTrend Hub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -191,11 +177,14 @@
     <div class="container">
         <a href="{% url 'shop' %}" class="back-button">&#8592; Back</a>
         <div class="product">
-            <img src="{% static 'images/download (2).jpeg' %}?v=2" alt="AI Smart Notebook">
+            <img src="{% static 'images/download (8).jpeg' %}" alt="Smart Glasses">
             <div class="details">
-                <h1>AI Smart Notebook</h1>
-                <p style="font-size: 20px; width: 500px; font-family: sans-serif;">AI-Powered Note Organization, Handwriting Recognition, Digital Syncing, Cloud Backup, Long Battery Life, Compatible with Smartphones, Tablets, and Laptops.</p>
-                <p class="price">$99.99 <span style="text-decoration: line-through; color: rgb(72, 69, 69); font-size: 24px;">$129.99</span></p>
+                <h1>Smart Glasses</h1>
+                <p style="font-size: 20px; width: 500px; font-family: sans-serif;">
+                    Step into the future with Smart Glasses—your digital assistant, now hands-free. Display notifications, navigate with AR,
+                    take calls, and capture moments seamlessly. Stylish, functional, and built for your connected lifestyle.
+                </p>
+                <p class="price">$249.99 <span style="text-decoration: line-through; color: rgb(72, 69, 69); font-size: 24px;">$349.99</span></p>
                 <a href="{% url 'cart' %}" class="buy-button">Add to Cart</a><br>
                 <a href="{% url 'buy' %}" class="buy-btn">Buy Now</a>
             </div>
@@ -205,62 +194,60 @@
             <h2 class="text-center mb-4">Related Products</h2>
             <div class="product-list">
                 <div class="product-item">
-                    <img src="{% static 'images/Smartphone.jpeg' %}?v=2" alt="Camera Mount">
+                    <img src="{% static 'images/download (5).jpeg' %}" alt="VR Headset">
+                    <p>VR Headset</p>
+                    <p class="price">$299.99</p>
+                    <a href="#" class="buy-button">View</a>
+                </div>
+                <div class="product-item">
+                    <img src="{% static 'images/Smartphone.jpeg' %}" alt="Smartphone">
                     <p>Smartphone</p>
                     <p class="price">$89.99</p>
                     <a href="#" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
-                    <img src="{% static 'images/macbookpro.jpeg' %}?v=2" alt="Bluetooth Speaker">
+                    <img src="{% static 'images/download (10).jpeg' %}" alt="Smart Lock">
+                    <p>Smart Lock</p>
+                    <p class="price">$159.99</p>
+                    <a href="#" class="buy-button">View</a>
+                </div>
+                <div class="product-item">
+                    <img src="{% static 'images/ipad.jpeg' %}" alt="Smart Tab">
+                    <p>Smart Tab</p>
+                    <p class="price">$90.00</p>
+                    <a href="#" class="buy-button">View</a>
+                </div>
+                <div class="product-item">
+                    <img src="{% static 'images/macbookpro.jpeg' %}" alt="Laptop">
                     <p>Laptop</p>
                     <p class="price">$100.00</p>
                     <a href="#" class="buy-button">View</a>
                 </div>
-                <div class="product-item">
-                    <img src="{% static 'images/download (1).jpeg' %}?v=2" alt="Smart Notebook">
-                    <p>AI Powered Keyboard</p>
-                    <p class="price">$29.99</p>
-                    <a href="#" class="buy-button">View</a>
-                </div>
-                <div class="product-item">
-                    <img src="{% static 'images/download (17).jpeg' %}?v=2" alt="Wireless Earbuds">
-                    <p>Wireless Earbuds</p>
-                    <p class="price">$59.99</p>
-                    <a href="#" class="buy-button">View</a>
-                </div>
-                
-                <div class="product-item">
-                    <img src="{% static 'images/download (3).jpeg' %}?v=2" alt="Bluetooth Speaker">
-                    <p>Bluetooth Speaker</p>
-                    <p class="price">$79.99</p>
-                    <a href="#" class="buy-button">View</a>
-                </div>
-                
             </div>
         </div>
 
         <div class="other-products">
             <h2>Other Products</h2>
             <div class="product-list">
-                    <div class="product-item">
-                        <img src="{% static 'images/download (1).jpeg' %}?v=2" alt="Smart Notebook">
-                        <p>AI Powered Keyboard</p>
-                        <p class="price">$29.99</p>
-                        <a href="#" class="buy-button">View</a>
-                    </div>
                 <div class="product-item">
-                    <img src="{% static 'images/download (3).jpeg' %}?v=2" alt="Speaker">
-                    <p>Bluetooth Speaker</p>
-                    <p class="price">$79.99</p>
+                    <img src="{% static 'images/download (11).jpeg' %}" alt="Headphones">
+                    <p>Noise Cancelling Headphones</p>
+                    <p class="price">$99.99</p>
                     <a href="#" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
-                    <img src="{% static 'images/download (4).jpeg' %}?v=2" alt="Headphones">
-                    <p>Noise-Cancelling Headphones</p>
-                    <p class="price">$129.99</p>
+                    <img src="{% static 'images/download (17).jpeg' %}" alt="Wireless Earbuds">
+                    <p>Wireless Earbuds</p>
+                    <p class="price">$59.99</p>
                     <a href="#" class="buy-button">View</a>
                 </div>
-               
+                <div class="product-item">
+                    <img src="{% static 'images/download (1).jpeg' %}" alt="AI Keyboard">
+                    <p>AI Powered Keyboard</p>
+                    <p class="price">$29.99</p>
+                    <a href="#" class="buy-button">View</a>
+                </div>
+            </div>
         </div>
     </div>
 

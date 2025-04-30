@@ -64,7 +64,6 @@ footer {
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'cart' %}">🛒 Cart (<span id="cart-count">0</span>)</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{% url 'shops' %}">Products</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'about' %}">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'contact' %}">Contact</a></li>
                 </ul>
@@ -76,6 +75,24 @@ footer {
         <h3 >Welcome, {{ request.session.username }}!😊</h3>
         <h2 class="text-center mb-4">Our Products</h2>
         <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <a href="{% url 'product6' %}">
+                        <img src="{% static 'images/Smartphone.jpeg' %}?v=2" class="card-img-top" alt="AI Smartwatch">
+                    </a>
+                    <div class="card-body text-center">
+                        <hr>
+                        <h5 class="card-title"><a href="{% url 'product6' %}" class="text-decoration-none">SmartPhone</a></h5>
+                        <p class="card-text">$89.99</p>
+                        <button class="btn btn-primary gradient-btn" onclick="addToCart('Smartphone', 89.99)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow">
                     <a href="{% url 'product' %}">
@@ -104,6 +121,37 @@ footer {
     </div>
 </div>
 
+
+<div class="col-md-4 mb-4">
+    <div class="card h-100 shadow">
+        <a href="{% url 'product7' %}">
+            <img src="{% static 'images/macbookpro.jpeg' %}?v=2" class="card-img-top" alt="Laptop">
+        </a>
+        <div class="card-body text-center">
+            <hr>
+            <h5 class="card-title"><a href="{% url 'product7' %}" class="text-decoration-none">Laptop</a></h5>
+            <p class="card-text">$100.00</p>
+            <button class="btn btn-primary gradient-btn" onclick="addToCart('Laptop', 100.00)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-4 mb-4">
+    <div class="card h-100 shadow">
+        <a href="{% url 'product8' %}">
+            <img src="{% static 'images/ipad.jpeg' %}?v=2" class="card-img-top" alt="Laptop">
+        </a>
+        <div class="card-body text-center">
+            <hr>
+            <h5 class="card-title"><a href="{% url 'product8' %}" class="text-decoration-none">Smart Tab</a></h5>
+            <p class="card-text">$90.00</p>
+            <button class="btn btn-primary gradient-btn" onclick="addToCart('Smart Tab', 90.00)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
         <a href="{% url 'product3' %}">
@@ -125,8 +173,8 @@ footer {
         <div class="card-body text-center">
             <hr>
             <h5 class="card-title"><a href="{% url 'product4' %}" class="text-decoration-none">AI-Powered Keyboard</a></h5>
-            <p class="card-text">$89.99</p>
-            <button class="btn btn-primary gradient-btn" onclick="addToCart('AI-Powered Keyboard', 89.99)">Add to Cart</button>
+            <p class="card-text">$29.99</p>
+            <button class="btn btn-primary gradient-btn" onclick="addToCart('AI-Powered Keyboard', 29.99)">Add to Cart</button>
         </div>
     </div>
 </div>
@@ -145,12 +193,12 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href="{% url 'product' %}">
+        <a href="{% url 'product9' %}">
             <img src="{% static 'images/download (3).jpeg' %}?v=2" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">Bluetooth Speaker</a></h5>
+            <h5 class="card-title"><a href="{% url 'product9' %}" class="text-decoration-none">Bluetooth Speaker</a></h5>
             <p class="card-text">$79.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('Bluetooth Speaker', 79.99)">Add to Cart</button>
         </div>
@@ -158,12 +206,12 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href="{% url 'product' %}">
+        <a href="{% url 'product10' %}">
             <img src="{% static 'images/download (4).jpeg' %}?v=2" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">Smart Ring</a></h5>
+            <h5 class="card-title"><a href="{% url 'product10' %}" class="text-decoration-none">Smart Ring</a></h5>
             <p class="card-text">$199.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('Smart Ring', 199.99)">Add to Cart</button>
         </div>
@@ -171,12 +219,12 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href="{% url 'product' %}">
+        <a href="{% url 'product11' %}">
             <img src="{% static 'images/download (5).jpeg' %}?v=2" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">VR Headset</a></h5>
+            <h5 class="card-title"><a href="{% url 'product11' %}" class="text-decoration-none">VR Headset</a></h5>
             <p class="card-text">$299.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('VR Headset', 299.99)">Add to Cart</button>
         </div>
@@ -184,12 +232,12 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href=" {% url 'product' %}">
+        <a href=" {% url 'product12' %}">
             <img src="{% static 'images/download (6).jpeg' %}?v=2" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">AI Home Assistant</a></h5>
+            <h5 class="card-title"><a href="{% url 'product12' %}" class="text-decoration-none">AI Home Assistant</a></h5>
             <p class="card-text">$149.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('AI Home Assistant', 149.99)">Add to Cart</button>
         </div>
@@ -197,12 +245,12 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href="{% url 'product' %}">
+        <a href="{% url 'product13' %}">
             <img src="{% static 'images/download (7).jpeg' %}?v=2" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">Wireless Charging Pad</a></h5>
+            <h5 class="card-title"><a href="{% url 'product13' %}" class="text-decoration-none">Wireless Charging Pad</a></h5>
             <p class="card-text">$39.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('Wireless Charging Pad', 39.99)">Add to Cart</button>
         </div>
@@ -210,12 +258,12 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href="{% url 'product' %}">
+        <a href="{% url 'product14' %}">
             <img src="{% static 'images/download (8).jpeg' %}?v=3" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">Smart Glasses</a></h5>
+            <h5 class="card-title"><a href="{% url 'product14' %}" class="text-decoration-none">Smart Glasses</a></h5>
             <p class="card-text">$249.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('Smart Glasses', 249.99)">Add to Cart</button>
         </div>
@@ -223,12 +271,12 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href=" {% url 'product' %}">
+        <a href=" {% url 'product15' %}">
             <img src="{% static 'images/download (9).jpeg' %}?v=4" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">Portable Projector</a></h5>
+            <h5 class="card-title"><a href="{% url 'product15' %}" class="text-decoration-none">Portable Projector</a></h5>
             <p class="card-text">$349.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('Portable Projector', 349.99)">Add to Cart</button>
         </div>
@@ -236,12 +284,12 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href="{% url 'product' %}">
+        <a href="{% url 'product16' %}">
             <img src="{% static 'images/download (10).jpeg' %}?v=3" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">Smart Lock</a></h5>
+            <h5 class="card-title"><a href="{% url 'product16' %}" class="text-decoration-none">Smart Lock</a></h5>
             <p class="card-text">$159.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('Smart Lock', 159.99)">Add to Cart</button>
         </div>
@@ -249,25 +297,25 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href="{% url 'product' %}">
+        <a href="{% url 'product17' %}">
             <img src="{% static 'images/download (11).jpeg' %}?v=3" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">Noise Cancelling Headphones</a></h5>
-            <p class="card-text">$199.99</p>
-            <button class="btn btn-primary gradient-btn" onclick="addToCart('Noise Cancelling Headphones', 199.99)">Add to Cart</button>
+            <h5 class="card-title"><a href="{% url 'product17' %}" class="text-decoration-none">Noise Cancelling Headphones</a></h5>
+            <p class="card-text">$99.99</p>
+            <button class="btn btn-primary gradient-btn" onclick="addToCart('Noise Cancelling Headphones', 99.99)">Add to Cart</button>
         </div>
     </div>
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href=" {% url 'product' %}">
+        <a href=" {% url 'product18' %}">
             <img src="{% static 'images/download (12).jpeg' %}?v=3" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">Fitness Tracker Band</a></h5>
+            <h5 class="card-title"><a href="{% url 'product18' %}" class="text-decoration-none">Fitness Tracker Band</a></h5>
             <p class="card-text">$99.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('Fitness Tracker Band', 99.99)">Add to Cart</button>
         </div>
@@ -275,12 +323,12 @@ footer {
 </div>
 <div class="col-md-4 mb-4">
     <div class="card h-100 shadow">
-        <a href=" {% url 'product' %}">
+        <a href=" {% url 'product19' %}">
             <img src="{% static 'images/download (13).jpeg' %}?v=3" class="card-img-top" alt="AI Smartwatch">
         </a>
         <div class="card-body text-center">
             <hr>
-            <h5 class="card-title"><a href="{% url 'product' %}" class="text-decoration-none">Digital Drawing Tablet</a></h5>
+            <h5 class="card-title"><a href="{% url 'product19' %}" class="text-decoration-none">Digital Drawing Tablet</a></h5>
             <p class="card-text">$229.99</p>
             <button class="btn btn-primary gradient-btn" onclick="addToCart('Digital Drawing Tablet', 229.99)">Add to Cart</button>
         </div>
