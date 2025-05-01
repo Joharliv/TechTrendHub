@@ -184,18 +184,17 @@
     <div class="container">
         <a href="{% url 'shop' %}" class="back-button">&#8592; Back</a>
         <div class="product">
-            <img src="{% static 'images/download (2).jpeg' %}?v=2" alt="Digital Drawing Tablet">
+            <img src="{% static 'images/download (16).jpeg' %}?v=2" alt="Digital Drawing Tablet">
             <div class="details">
-                <h1>Digital Drawing Tablet</h1>
-                <p style="font-size: 20px; width: 500px; font-family: sans-serif;">13.3" Full HD Pen Display,
-                    Battery-Free Stylus with 8192 Pressure Levels, Tilt Support, Customizable Shortcut Keys, Anti-Glare
-                    Screen, USB-C Connectivity, Compatible with Windows, macOS & Android, Works with Photoshop,
-                    Illustrator, and more.
+                <h1>Smart Coffee Maker</h1>
+                <p style="font-size: 20px; width: 500px; font-family: sans-serif;">
+                    Brew barista-quality coffee from the comfort of your home with our Smart Coffee Maker. Features include voice control compatibility, automatic scheduling, temperature control, and a built-in grinder. Connects with Alexa and Google Assistant for a seamless experience. Sleek design perfect for any modern kitchen.
                 </p>
-                <p class="price">$79.99 <span
+                
+                <p class="price">$99.99 <span
                         style="text-decoration: line-through; color: rgb(72, 69, 69); font-size: 24px;">$120.00</span>
                 </p>
-                <a href="javascript:void(0);" class="buy-button" onclick="addToCart('Digital Drawing Tablet', 79.99)">Add to Cart</a>
+                <a href="javascript:void(0);" class="buy-button" onclick="addToCart('Smart Coffee Maker', 99.99)">Add to Cart</a>
                 <br>
                 <a href="{% url 'buy' %}" class="buy-btn">Buy Now</a>
             </div>
@@ -249,10 +248,10 @@
                     <a href="{% url 'product2' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
-                    <img src="{% static 'images/download (16).jpeg' %}?v=2" alt="Coffee Maker">
-                    <p>Smart Coffee Maker</p>
-                    <p class="price">$99.99</p>
-                    <a href="{% url 'product20' %}" class="buy-button">View</a>
+                    <img src="{% static 'images/sw.jpeg' %}" alt="AI Smartwatch">
+                    <p>AI Smartwatch</p>
+                    <p class="price">$39.99</p>
+                    <a href="{% url 'product' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/download (3).jpeg' %}?v=2" alt="Speaker">
@@ -270,6 +269,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         function updateCartCount() {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];

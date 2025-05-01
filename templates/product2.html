@@ -170,7 +170,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'shop' %}">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{% url 'cart' %}">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'cart' %}">🛒 Cart (<span id="cart-count">0</span>)</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </div>
@@ -187,8 +187,9 @@
                 <h1>Wireless Earbuds</h1>
                 <p>AMOLED Display, 2 Straps, Make/Answer Calls, IP68 Waterproof, Fitness Tracking, 100+ Sport Modes,
                     Pedometer, Android & iOS Compatible.</p>
-                <p class="price">$59.99 <span style="text-decoration: line-through; color: gray; font-size: 24px;">$89.99</span></p>
-                <a href="{% url 'cart' %}" class="buy-button">Add to Cart</a><br>
+                <p class="price">$29.99 <span style="text-decoration: line-through; color: gray; font-size: 24px;">$89.99</span></p>
+                <a href="javascript:void(0);" class="buy-button" onclick="addToCart('Wireless Earbuds', 29.99)">Add to Cart</a>
+                <br>
                 <a href="{% url 'buy' %}" class="buy-btn">Buy Now</a>
             </div>
         </div>
@@ -202,31 +203,31 @@
                     <img src="{% static 'images/Smartphone.jpeg' %}" alt="Smartphone">
                     <p>Smartphone</p>
                     <p class="price">$89.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <a href="{% url 'product6' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/download (12).jpeg' %}" alt="Fitness band">
                     <p>Fitness Smart band</p>
-                    <p class="price">$39.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$19.99</p>
+                    <a href="{% url 'product18' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/download (7).jpeg' %}?v=2" alt="Watch Stand">
                     <p>Smartwatch Charging Stand</p>
-                    <p class="price">$19.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$39.99</p>
+                    <a href="{% url 'product13' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/ipad.jpeg' %}" alt="tablet">
                     <p>Smart Tab</p>
                     <p class="price">$90.00</p>
-                    <a href="#" class="buy-button">View</a>
+                    <a href="{% url 'product8' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/download (3).jpeg' %}?v=2" alt="Bluetooth Speaker">
                     <p>Bluetooth Speaker</p>
-                    <p class="price">$79.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$39.99</p>
+                    <a href="{% url 'product9' %}" class="buy-button">View</a>
                 </div>
             </div>
         </div>
@@ -239,20 +240,20 @@
                 <div class="product-item">
                     <img src="{% static 'images/download (2).jpeg' %}?v=2" alt="Watch 1">
                     <p>Smart Notebook</p>
-                    <p class="price">$49.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$14.99</p>
+                    <a href="{% url 'product5' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
-                    <img src="{% static 'images/download (16).jpeg' %}?v=2" alt="Watch 2">
+                    <img src="{% static 'images/download (16).jpeg' %}?v=2" alt="Coffee Maker">
                     <p>Smart Coffee Maker</p>
                     <p class="price">$99.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <a href="{% url 'product20' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/download (3).jpeg' %}?v=2" alt="Watch 3">
                     <p>Bluetooth Speaker</p>
-                    <p class="price">$79.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$39.99</p>
+                    <a href="{% url 'product9' %}" class="buy-button">View</a>
                 </div>
             </div>
         </div>
@@ -262,6 +263,35 @@
     <footer>
         <p class="mb-0">&copy; 2025 TechTrend Hub. All rights reserved.</p>
     </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById("cart-count").textContent = totalCount;
+}
+
+    function addToCart(productName, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    let existingItem = cart.find(item => item.name === productName);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name: productName, price: parseFloat(price), quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert(productName + " added to cart!");
+}
+
+// Initialize cart count on page load
+updateCartCount();
+
+</script>
 </body>
+
 
 </html>

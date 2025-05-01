@@ -73,6 +73,9 @@ def product18(request):
 def product19(request):
     return render(request, 'product19.html')
 
+def product20(request):
+    return render(request, 'product20.html')
+
 def shop(request):
     return render(request, 'shop.html')
 

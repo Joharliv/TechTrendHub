@@ -180,7 +180,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'shop' %}">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{% url 'cart' %}">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'cart' %}">🛒 Cart (<span id="cart-count">0</span>)</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </div>
@@ -195,10 +195,11 @@
             <div class="details">
                 <h1>Smart Home Camera</h1>
                 <p style="font-size: 20px; width: 500px; font-family: sans-serif;">1080p HD Video, Night Vision, Two-Way Audio, Motion Detection, Wireless, Smartphone Control, Compatible with Alexa & Google Assistant.</p>
-                <p class="price">$129.99 <span
+                <p class="price">$79.99 <span
                         style="text-decoration: line-through; color: rgb(72, 69, 69); font-size: 24px;">$149.99</span>
                 </p>
-                <a href="{% url 'cart' %}" class="buy-button">Add to Cart</a><br>
+                <a href="javascript:void(0);" class="buy-button" onclick="addToCart('Smart Home Camera', 149.99)">Add to Cart</a>
+                <br>
                 <a href="{% url 'buy' %}" class="buy-btn">Buy Now</a>
             </div>
         </div>
@@ -209,33 +210,33 @@
                 <div class="product-item">
                     <img src="{% static 'images/download (10).jpeg' %}" alt="Security Camera Mount">
                     <p>Smart Lock</p>
-                    <p class="price">$159.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$29.99</p>
+                    <a href="{% url 'product16' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/download (6).jpeg' %}" alt="Camera Charger">
                     <p>AI Home Assistant</p>
-                    <p class="price">$149.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$249.99</p>
+                    <a href="{% url 'product12' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/Smartphone.jpeg' %}" alt="Smart phone">
                     <p>Smartphone</p>
                     <p class="price">$89.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <a href="{% url 'product6' %}" class="buy-button">View</a>
                 </div>
 
                 <div class="product-item">
                     <img src="{% static 'images/download (12).jpeg' %}?v=3" alt="Smart Band">
                     <p>Fitness Smart Band</p>
-                    <p class="price">$39.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$19.99</p>
+                    <a href="{% url 'product18' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/download (17).jpeg' %}?v=2" alt="Wireless Earbuds">
                     <p>Wireless Earbuds</p>
-                    <p class="price">$59.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$29.99</p>
+                    <a href="{% url 'product2' %}" class="buy-button">View</a>
                 </div>
               
             </div>
@@ -247,20 +248,20 @@
                 <div class="product-item">
                     <img src="{% static 'images/download (2).jpeg' %}?v=2" alt="Notebook">
                     <p>Smart Notebook</p>
-                    <p class="price">$49.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$14.99</p>
+                    <a href="{% url 'product5' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/download (16).jpeg' %}?v=2" alt="Coffee Maker">
                     <p>Smart Coffee Maker</p>
                     <p class="price">$99.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <a href="{% url 'product20' %}" class="buy-button">View</a>
                 </div>
                 <div class="product-item">
                     <img src="{% static 'images/download (3).jpeg' %}?v=2" alt="Speaker">
                     <p>Bluetooth Speaker</p>
-                    <p class="price">$79.99</p>
-                    <a href="#" class="buy-button">View</a>
+                    <p class="price">$39.99</p>
+                    <a href="{% url 'product9' %}" class="buy-button">View</a>
                 </div>
             </div>
         </div>
@@ -272,6 +273,33 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById("cart-count").textContent = totalCount;
+    }
+
+        function addToCart(productName, price) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        let existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name: productName, price: parseFloat(price), quantity: 1 });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+        alert(productName + " added to cart!");
+    }
+
+    // Initialize cart count on page load
+    updateCartCount();
+
+    </script>
+    
 </body>
 
 </html>

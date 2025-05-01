@@ -45,6 +45,7 @@ urlpatterns = [
     path('product17/', views.product17, name='product17'),  # URL for the product17 view
     path('product18/', views.product18, name='product18'),  # URL for the product18 view
     path('product19/', views.product19, name='product19'),  # URL for the product19 view
+    path('product20/', views.product20, name='product20'),  # URL for the product20 view
     path('shop/', views.shop, name='shop'),  # URL for the shop view
     path('buy/', views.buy, name='buy'),  # URL for the shops view
 
