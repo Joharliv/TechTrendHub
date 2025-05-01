@@ -2,38 +2,75 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - TechTrend Hub</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             display: flex;
             flex-direction: column;
         }
+
         .content {
-            flex: 1;
+            flex: 1 0 auto;
         }
+
         .custom-navbar {
-            background: linear-gradient(135deg, #bdd0f3, #3e2a98); /* blue to purple-ish */
+            background: linear-gradient(135deg, #bdd0f3, #3e2a98);
+            /* blue to purple-ish */
         }
+
         footer {
-            background: linear-gradient(135deg, #3e2a98, #bdd0f3); /* blue to purple-ish */
+            background: linear-gradient(135deg, #3e2a98, #bdd0f3);
+            /* blue to purple-ish */
             color: white;
             padding: 20px 0;
             position: relative;
             bottom: 0;
             width: 100%;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 576px) {
+            .btn {
+                font-size: 0.85rem;
+                padding: 6px 10px;
+            }
+
+            h2,
+            h4 {
+                font-size: 1.3rem;
+            }
+
+            .table td,
+            .table th {
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+
+            .text-end.d-flex {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .text-end.d-flex .btn {
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
+
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}" style="color: #3e2a98; font-weight: bold ;">TechTrend Hub</a>
+            <a class="navbar-brand" href="{% url 'home' %}" style="color: #3e2a98; font-weight: bold ;">TechTrend
+                Hub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,7 +78,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active " href="{% url 'home' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'shop' %}">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{% url 'cart' %}">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'cart' %}">🛒 Cart (<span
+                                id="cart-count">0</span>)</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </div>
@@ -49,29 +87,31 @@
     </nav>
 
     <div class="content">
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Shopping Cart</h2>
-        <table class="table table-bordered text-center">
-            <thead class="table-dark">
-                <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="cart-items"></tbody>
-        </table>
-        <h4 class="text-end mt-3">Grand Total: $<span id="grand-total">0.00</span></h4>
-        <div class="text-end d-flex justify-content-end gap-3 mt-2">
-            <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
-            <a href="{% url 'buy' %}" class="btn btn-success" onclick="saveGrandTotal()">Proceed to Pay</a>
+        <div class="container mt-5">
+            <h2 class="text-center mb-4">Shopping Cart</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items"></tbody>
+                </table>
+            </div>
+            <h4 class="text-end mt-3">Grand Total: $<span id="grand-total">0.00</span></h4>
+            <div class="text-end d-flex justify-content-end gap-3 mt-2">
+                <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+                <a href="{% url 'buy' %}" class="btn btn-success" onclick="saveGrandTotal()">Proceed to Pay</a>
 
+
+            </div>
 
         </div>
-        
-    </div>
     </div>
 
 
@@ -84,13 +124,13 @@
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
             let cartItemsContainer = document.getElementById("cart-items");
             let grandTotal = 0;
-            
+
             cartItemsContainer.innerHTML = ""; // Clear existing items
-            
+
             cart.forEach((item, index) => {
                 let total = item.price * item.quantity;
                 grandTotal += total;
-                
+
                 cartItemsContainer.innerHTML += `
                     <tr>
                         <td>${item.name}</td>
@@ -111,7 +151,7 @@
 
         function updateQuantity(index, action) {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            
+
             if (action === "increase") {
                 cart[index].quantity += 1;
             } else if (action === "decrease") {
@@ -138,25 +178,26 @@
         }
 
         window.onload = loadCart;
-    </script><script>
-    function loadCart() {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let cartItemsContainer = document.getElementById("cart-items");
-        let grandTotal = 0;
+    </script>
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let cartItemsContainer = document.getElementById("cart-items");
+            let grandTotal = 0;
 
-        console.log("Loaded Cart Data:", cart); // Debugging line
+            console.log("Loaded Cart Data:", cart); // Debugging line
 
-        cartItemsContainer.innerHTML = ""; // Clear existing items
+            cartItemsContainer.innerHTML = ""; // Clear existing items
 
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = "<tr><td colspan='5'>Your cart is empty.</td></tr>";
-        }
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = "<tr><td colspan='5'>Your cart is empty.</td></tr>";
+            }
 
-        cart.forEach((item, index) => {
-            let total = item.price * item.quantity;
-            grandTotal += total;
+            cart.forEach((item, index) => {
+                let total = item.price * item.quantity;
+                grandTotal += total;
 
-            cartItemsContainer.innerHTML += `
+                cartItemsContainer.innerHTML += `
                 <tr>
                     <td>${item.name}</td>
                     <td>$${item.price.toFixed(2)}</td>
@@ -169,71 +210,74 @@
                     <td><button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">Remove</button></td>
                 </tr>
             `;
-        });
+            });
 
-        document.getElementById("grand-total").textContent = grandTotal.toFixed(2);
-    }
-
-    function updateQuantity(index, action) {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        if (action === "increase") {
-            cart[index].quantity += 1;
-        } else if (action === "decrease") {
-            cart[index].quantity -= 1;
-            if (cart[index].quantity <= 0) {
-                cart.splice(index, 1);
-            }
+            document.getElementById("grand-total").textContent = grandTotal.toFixed(2);
         }
 
-        localStorage.setItem("cart", JSON.stringify(cart));
-        loadCart();
-    }
+        function updateQuantity(index, action) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    function removeFromCart(index) {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        cart.splice(index, 1);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        loadCart();
-    }
+            if (action === "increase") {
+                cart[index].quantity += 1;
+            } else if (action === "decrease") {
+                cart[index].quantity -= 1;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+            }
 
-    function clearCart() {
-        localStorage.removeItem("cart");
-        loadCart();
-    }
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+        }
 
-    // Ensure the function runs when the page loads
-    window.onload = loadCart;
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+        }
 
-    function saveGrandTotal() {
-    let grandTotal = document.getElementById("grand-total").textContent;
-    localStorage.setItem("grandTotal", grandTotal); // Save the grand total
-}
-function updateCartCount() {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-        document.getElementById("cart-count").textContent = totalCount;
-    }
+        function clearCart() {
+            localStorage.removeItem("cart");
+            loadCart();
+        }
+
+        // Ensure the function runs when the page loads
+        window.onload = loadCart;
+
+        function saveGrandTotal() {
+            let grandTotal = document.getElementById("grand-total").textContent;
+            localStorage.setItem("grandTotal", grandTotal); // Save the grand total
+        }
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById("cart-count").textContent = totalCount;
+        }
 
         function addToCart(productName, price) {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        
-        let existingItem = cart.find(item => item.name === productName);
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({ name: productName, price: parseFloat(price), quantity: 1 });
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            let existingItem = cart.find(item => item.name === productName);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: parseFloat(price), quantity: 1 });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartCount();
+            alert(productName + " added to cart!");
         }
 
-        localStorage.setItem("cart", JSON.stringify(cart));
+        // Initialize cart count on page load
         updateCartCount();
-        alert(productName + " added to cart!");
-    }
 
-    // Initialize cart count on page load
-    updateCartCount();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-</script>
 
 </body>
+
 </html>

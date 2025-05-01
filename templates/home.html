@@ -64,19 +64,22 @@ footer {
         </div>
     </nav>
 
-    <header style="background: url('/static/images/bgimg.png') no-repeat center center; background-size: cover;" class="text-white text-center py-5">
+    <header class="text-white text-center py-5" style="background: url('/static/images/bgimg.png') no-repeat center center; background-size: cover;">
         <div class="container">
-            <h1>Welcome to TechTrend Hub</h1>
+            <h1 class="display-5 display-md-3">Welcome to TechTrend Hub</h1>
             <p class="lead">TechTrend Hub: Navigating the Future of Technology</p>
-            <a href="{% url 'signup' %}" class="btn btn-light btn-lg" style="color:#3e2a98; font-weight: bold;">Signup</a>  
-            <a href="{% url 'login' %}" class="btn btn-light btn-lg" style="color:#3e2a98; font-weight: bold;">Login</a>
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-3">
+                <a href="{% url 'signup' %}" class="btn btn-light btn-lg" style="color:#3e2a98; font-weight: bold;">Signup</a>  
+                <a href="{% url 'login' %}" class="btn btn-light btn-lg" style="color:#3e2a98; font-weight: bold;">Login</a>
+            </div>
         </div>
     </header>
+    
 
     <section class="container my-5">
         <h2 class="text-center">Featured Products</h2>
         <div class="row text-center mt-4">
-            <div class="col-md-4">
+            <div class="col-sm-12 col-md-4 mb-4">
                 <div class="card shadow">
                     <img src="{% static 'images/sw.jpeg' %}?v=2" class="card-img-top" alt="Smartwatch">
                     <div class="card-body">
@@ -87,7 +90,7 @@ footer {
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-12 col-md-4 mb-4">
                 <div class="card shadow">
                     <img src="{% static 'images/download (17).jpeg' %}?v=2" class="card-img-top" alt="Wireless Earbuds">
                     <div class="card-body">
@@ -98,7 +101,7 @@ footer {
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-12 col-md-4 mb-4">
                 <div class="card shadow">
                     <img src="{% static 'images/download (18).jpeg' %}?v=2" class="card-img-top" alt="Smart Camera">
                     <div class="card-body">
@@ -115,5 +118,7 @@ footer {
     <footer class="bg-dark text-white text-center py-3 mt-5">
         <p class="mb-0">&copy; 2025 TechTrend Hub. All rights reserved.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
